@@ -3,8 +3,15 @@
  */
 
 import angular from 'angular';
-import './styles.scss';
+import 'angular-aria';
+import 'angular-animate';
+import  ngMaterial from 'angular-material';
+import uirouter from 'angular-ui-router';
+import routing from './app.config';
+import home from './views/home';
 
-alert('Hello!');
+import 'angular-material/angular-material.css';
+import './_app.scss';
 
-angular.module('app', []);
+angular.module('app', [uirouter, home, ngMaterial])
+    .config(routing);
