@@ -9,9 +9,10 @@ import  ngMaterial from 'angular-material';
 import uirouter from 'angular-ui-router';
 import routing from './app.config';
 import home from './views/home';
+import components from './components'
 
 import 'angular-material/angular-material.css';
 import './_app.scss';
 
-angular.module('app', [uirouter, home, ngMaterial])
+angular.module('app', [uirouter, home, components, ngMaterial])
     .config(routing);
