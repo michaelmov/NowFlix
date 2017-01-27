@@ -2,7 +2,7 @@ import SidebarCtrl from './sidebar.controller';
 
 let Sidebar = {
     bindings: {
-        navItems: '@'
+        items: '='
     },
     template: require('./sidebar.template.html'),
     controller: SidebarCtrl
