@@ -1,4 +1,4 @@
-import SidebarCtrl from './sidebar.controller';
+import SidebarCtrl from './sidebar.controller.js';
 
 let Sidebar = {
     bindings: {

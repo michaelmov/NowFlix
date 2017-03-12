@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/">
 </head>
-<body ng-cloak layout="column">
-<ui-view></ui-view>
+<body ng-cloak layout="row" layout-fill>
+        <sidebar layout="column"></sidebar>
+        <ui-view layout="column" flex></ui-view>
 </body>
 </html>

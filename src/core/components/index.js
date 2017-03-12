@@ -5,7 +5,7 @@ let componentsModule = angular.module('app.components', []);
 /*
 * Sidebar Component
 * */
-import Sidebar from './sidebar/sidebar.component';
+import Sidebar from './sidebar/sidebar.component.js';
 import './sidebar/_sidebar.scss';
 componentsModule.component('sidebar', Sidebar);
 
