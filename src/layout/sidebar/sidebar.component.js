@@ -1,6 +1,6 @@
 import SidebarCtrl from './sidebar.controller.js';
 
-let Sidebar = {
+let sidebar = {
     bindings: {
         items: '='
     },
@@ -8,4 +8,4 @@ let Sidebar = {
     controller: SidebarCtrl
 };
 
-export default Sidebar;
+export default sidebar;

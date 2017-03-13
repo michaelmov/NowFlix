@@ -8,18 +8,19 @@ import 'angular-animate';
 import ngMaterial from 'angular-material';
 import uirouter from 'angular-ui-router';
 
-import { routing, theme } from './app.config';
-import home from './views/MovieList';
-import components from './core/components';
+import { routing, theme, MOVIE_DB_API } from './app.config';
+import Movies from './views/movies';
+import Sidebar from './layout/sidebar'
 
 import 'angular-material/angular-material.scss';
 import './_app.scss';
 
 angular.module('app', [
     uirouter,
-    home,
-    components,
+    Movies,
+    Sidebar,
     ngMaterial
 ])
+    .constant('MOVIE_DB_API', MOVIE_DB_API)
     .config(routing)
     .config(theme);
