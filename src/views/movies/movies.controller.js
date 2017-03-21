@@ -3,7 +3,10 @@
  */
 
 export default class MoviesController {
+
     constructor($state, MOVIE_DB_API) {
+        'ngInject';
+
         this.name = 'World';
         this.state = $state;
         this.apiKey = MOVIE_DB_API.API_KEY
@@ -11,11 +14,9 @@ export default class MoviesController {
 
     changeName() {
         if (this.state.is('upcomingMovies')) {
-            this.name = 'Upcoming Movies';
+            this.name = 'Upcoming movies';
             return;
         }
         this.name = 'NowFlix ' + this.apiKey;
     }
 }
-
-MoviesController.$inject = ['$state', 'MOVIE_DB_API'];

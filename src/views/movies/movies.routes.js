@@ -2,9 +2,8 @@
  * Created by michaelmovsesov on 1/22/17.
  */
 
-routes.$inject = ['$stateProvider'];
-
 export default function routes($stateProvider) {
+    'ngInject';
     $stateProvider
         .state('allMovies', {
             url: '/',

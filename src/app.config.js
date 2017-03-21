@@ -2,16 +2,15 @@
  * Created by Michael Movsesov on 1/22/17.
  */
 
-import angular from 'angular';
-
-routing.$inject = ['$urlRouterProvider', '$locationProvider', '$mdThemingProvider'];
-
 function routing($urlRouterProvider, $locationProvider) {
+    'ngInject';
+
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/');
 }
 
 function theme($mdThemingProvider) {
+    'ngInject';
 
     const darkBluePalette = {
         '50': 'e9ecee',
@@ -55,12 +54,4 @@ function theme($mdThemingProvider) {
 
 }
 
-
-/* API */
-const MOVIE_DB_API = {
-    API_ENDPOINT: 'https://api.themoviedb.org/3/',
-    API_KEY: 'c9c85c921ecf50a02bc8dc81d28cf4fd'
-};
-
-
-export { routing, theme, MOVIE_DB_API }
+export { routing, theme }

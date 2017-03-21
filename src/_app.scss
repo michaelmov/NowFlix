@@ -1,7 +1,11 @@
+/* Angular Material */
+@import "../node_modules/angular-material/angular-material";
+
+/* Base */
 @import "styles/typography";
 
-.nfx {
-  .movies {
-    background-image: radial-gradient(80% 108%, #475F73 22%, #22313F 100%);
-  }
-}
+/* Components */
+@import "components/sidebar/sidebar";
+
+/* Views */
+@import "views/movies/movies";

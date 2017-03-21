@@ -1,0 +1,10 @@
+<md-sidenav flex class="nfx-sidebar md-whiteframe-8dp" md-is-locked-open="true"
+            md-component-id="left" md-colors="{background: 'background-600'}" hide-xs>
+    <h1>NowFlix</h1>
+    <ul>
+        <li ng-repeat="item in $ctrl.navItems">
+            <a href="{{item.url}}">{{item.name}}</a>
+        </li>
+    </ul>
+</md-sidenav>
+
