@@ -1,6 +1,6 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
@@ -14,11 +14,12 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loaders: ["babel-loader"]
+				loaders: ["ng-annotate-loader", "babel-loader"]
 			},
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap!sass-loader?sourceMap")
+				loader: ExtractTextPlugin.extract("style-loader",
+					"css-loader?sourceMap!sass-loader?sourceMap")
 			},
 			{
 				test: /\.css$/,

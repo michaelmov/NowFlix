@@ -1,4 +1,4 @@
-var devConfig = require('./webpack.config');
+const devConfig = require('./webpack.config');
 
 /*
 * Add unique hash to bundles for each build to refresh browser cache
