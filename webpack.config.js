@@ -9,6 +9,10 @@ module.exports = {
 		path: __dirname + "/dist",
 		filename: "bundle.js"
 	},
+	externals: {
+	    "angular": "angular",
+        "angular-material": "ngMaterial"
+    },
 	module: {
 		loaders: [
 			{

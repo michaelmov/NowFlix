@@ -3,9 +3,7 @@
  */
 
 import angular from 'angular';
-import 'angular-aria';
-import 'angular-animate';
-import ngMaterial from 'angular-material';
+import 'angular-material';
 import uirouter from 'angular-ui-router';
 
 import './_app.scss';
@@ -17,10 +15,10 @@ import Movies from './views/movies/movies.module';
 
 
 angular.module('app', [
+    'ngMaterial',
     uirouter,
     Movies,
     Sidebar,
-    ngMaterial
 ])
     .constant('MOVIE_DB_API', MOVIE_DB_API)
     .config(routing)
