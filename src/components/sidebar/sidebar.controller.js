@@ -2,11 +2,11 @@
  * Created by Michael Movsesov on 3/9/17.
  */
 
-export default class SidebarCtrl {
+export default class SidebarController {
     constructor() {
         this.navItems = [
             {
-                name: 'All',
+                name: 'Now Playing',
                 url: '/'
             },
             {

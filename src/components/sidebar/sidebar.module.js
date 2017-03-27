@@ -4,10 +4,10 @@
 
 import angular from 'angular';
 import sidebar from './sidebar.component';
-import SidebarCtrl from './sidebar.controller';
+import SidebarController from './sidebar.controller';
 
 export default angular.module('app.sidebar', [])
-    .controller('SidebarCtrl', SidebarCtrl)
+    .controller('SidebarCtrl', SidebarController)
     .component('sidebar', sidebar)
     .name;
 

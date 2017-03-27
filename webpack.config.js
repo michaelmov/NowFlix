@@ -50,6 +50,7 @@ module.exports = {
 		hot: true,
 		port: 3000,
 		stats: 'minimal',
-		contentBase: '/src'
+		contentBase: '/src',
+		historyApiFallback: true
 	}
 };

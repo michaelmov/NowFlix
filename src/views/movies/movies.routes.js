@@ -5,7 +5,7 @@
 export default function routes($stateProvider) {
     'ngInject';
     $stateProvider
-        .state('allMovies', {
+        .state('nowPlayingMovies', {
             url: '/',
             template: require('./movies.template.html'),
             controller: 'MoviesController',
