@@ -8,23 +8,31 @@ export default class MoviesController {
     constructor($state, MOVIE_DB_API, MoviesSvc) {
         'ngInject';
 
-        this.name = 'World';
         this.state = $state;
-        this.apiKey = MOVIE_DB_API.API_KEY
+        this.apiKey = MOVIE_DB_API.API_KEY;
         this.moviesSvc = MoviesSvc;
         this.movieList = null;
+
+
+        this.loadMovieList();
     }
 
-    changeName() {
-        if (this.state.is('upcomingMovies')) {
-            this.name = 'Upcoming movies';
-            return;
+    loadMovieList() {
+        switch(this.state.current.name) {
+            case 'upcomingMovies':
+                this.moviesSvc.getMovies('upcoming').then((movies) => {
+                    this.movieList = movies;
+                });
+                break;
+            case 'topRatedMovies':
+                this.moviesSvc.getMovies('top_rated').then((movies) => {
+                    this.movieList = movies;
+                });
+                break;
+            default:
+                this.moviesSvc.getMovies('now_playing').then((movies) => {
+                    this.movieList = movies;
+                });
         }
-        this.name = 'NowFlix ' + this.apiKey;
-        this.moviesSvc.getMovies().then((movies) => {
-            this.movieList = movies.data.results;
-            console.log(this.movieList);
-        })
-        ;
     }
 }

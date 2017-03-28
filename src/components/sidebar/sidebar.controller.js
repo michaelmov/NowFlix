@@ -12,6 +12,10 @@ export default class SidebarController {
             {
                 name: 'Upcoming',
                 url: '/upcoming'
+            },
+            {
+                name: 'Top Rated',
+                url: '/top'
             }
         ]
     }

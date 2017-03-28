@@ -16,5 +16,11 @@ export default function routes($stateProvider) {
             template: require('./movies.template.html'),
             controller: 'MoviesController',
             controllerAs: 'movies'
+        })
+        .state('topRatedMovies', {
+            url: '/top',
+            template: require('./movies.template.html'),
+            controller: 'MoviesController',
+            controllerAs: 'movies'
         });
 }
