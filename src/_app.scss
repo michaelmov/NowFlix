@@ -5,7 +5,8 @@
 @import "shared/styles/typography";
 
 /* Components */
-@import "components/sidebar/sidebar";
+@import "components/sidebar/sidebar",
+        "components/grid-thumbnail/grid-thumbnail";
 
 /* Views */
 @import "views/movies/movies";

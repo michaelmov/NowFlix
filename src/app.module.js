@@ -19,6 +19,7 @@ import './_app.scss';
 
 // Component modules
 import Sidebar from './components/sidebar/sidebar.module';
+import GridThumbnail from './components/grid-thumbnail/grid-thumbnail.module';
 
 // View modules
 import Movies from './views/movies/movies.module';
@@ -33,6 +34,7 @@ angular.module('app', [
     uirouter,
     Movies,
     Sidebar,
+    GridThumbnail,
     MoviesSvc
 ])
     .constant('MOVIE_DB_API', MOVIE_DB_API)

@@ -1,0 +1,22 @@
+.nfx-grid-thumbnail {
+  position: relative;
+  display: inline-block;
+  padding-left: $baseline-grid * 3;
+  padding-right: $baseline-grid * 3;
+
+  &__poster-image {
+    display: block;
+    width:100%;
+  }
+  &__rating__container {
+    text-align: center;
+  }
+
+  &__rating {
+    position: absolute;
+    padding: $baseline-grid / 2;
+    width: 48px;
+    border-radius: 10px;
+    top: -12px;
+  }
+}
