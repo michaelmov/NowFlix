@@ -1,7 +1,15 @@
-<md-content class="movies" flex md-scroll-y md-colors="{'background-color' : 'background-700'}">
-        <ul>
-            <li ng-repeat="movie in movies.movieList">
-                {{ movie.title }}
-            </li>
-        </ul>
+<md-content class="movies"
+            layout="row"
+            layout-align="center start"
+            flex
+            md-scroll-y
+            md-colors="{'background-color' : 'background-700'}">
+        <div class="movies__container" layout="row" layout-wrap>
+            <grid-thumbnail ng-repeat="movie in movies.movieList"
+                            title="{{movie.title}}"
+                            rating="{{movie.vote_average}}"
+                            poster="{{movies.getPoster(movie.poster_path)}}"
+                            flex="25" flex-xs="100">
+            </grid-thumbnail>
+        </div>
 </md-content>

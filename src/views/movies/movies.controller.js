@@ -13,7 +13,6 @@ export default class MoviesController {
         this.moviesSvc = MoviesSvc;
         this.movieList = null;
 
-
         this.loadMovieList();
     }
 
@@ -32,7 +31,12 @@ export default class MoviesController {
             default:
                 this.moviesSvc.getMovies('now_playing').then((movies) => {
                     this.movieList = movies;
+                    console.log(this.movieList);
                 });
         }
+    }
+
+    getPoster(path) {
+        return this.moviesSvc.getMoviePosterUrl('w320', path);
     }
 }

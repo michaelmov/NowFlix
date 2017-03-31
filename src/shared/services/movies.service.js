@@ -12,6 +12,7 @@ class MoviesService {
         this.$log = $log;
         this.apiKey = MOVIE_DB_API.API_KEY;
         this.endPoint = MOVIE_DB_API.API_ENDPOINT;
+        this.posterEndpoint = MOVIE_DB_API.POSTER_ENDPOINT;
         this.movies = [];
     }
 
@@ -29,6 +30,13 @@ class MoviesService {
             });
 
         return deferred.promise;
+    }
+
+    getMoviePosterUrl(size, path) {
+        let posterSize = size || 'w640';
+        let posterPath = path;
+
+        return `${this.posterEndpoint}/${posterSize}/${posterPath}`;
     }
 }
 export default angular.module('app.services', [])

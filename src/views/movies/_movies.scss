@@ -1,7 +1,9 @@
-.nfx {
-  .movies {
-    word-wrap: break-word;
-    background-image: radial-gradient(80% 108%, #475F73 22%, #22313F 100%);
-    padding: $baseline-grid * 6;
+.movies {
+  word-wrap: break-word;
+  background-image: radial-gradient(80% 108%, #475F73 22%, #22313F 100%);
+  padding: $baseline-grid * 6;
+
+  &__container {
+    max-width: 1200px;
   }
 }
