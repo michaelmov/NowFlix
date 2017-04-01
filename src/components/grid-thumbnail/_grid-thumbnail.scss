@@ -3,11 +3,13 @@
   display: inline-block;
   padding-left: $baseline-grid * 3;
   padding-right: $baseline-grid * 3;
+  margin-bottom: $baseline-grid * 4;
 
   &__poster-image {
     display: block;
-    width:100%;
+    width: 210px;
   }
+
   &__rating__container {
     text-align: center;
   }

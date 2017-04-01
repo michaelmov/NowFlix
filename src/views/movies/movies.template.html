@@ -4,12 +4,11 @@
             flex
             md-scroll-y
             md-colors="{'background-color' : 'background-700'}">
-        <div class="movies__container" layout="row" layout-wrap>
+        <div class="movies__container" layout="row" layout-align="center start" layout-wrap flex>
             <grid-thumbnail ng-repeat="movie in movies.movieList"
                             title="{{movie.title}}"
                             rating="{{movie.vote_average}}"
-                            poster="{{movies.getPoster(movie.poster_path)}}"
-                            flex="25" flex-xs="100">
+                            poster="{{movies.getPoster(movie.poster_path)}}">
             </grid-thumbnail>
         </div>
 </md-content>

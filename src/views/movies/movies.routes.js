@@ -8,19 +8,19 @@ export default function routes($stateProvider) {
         .state('nowPlayingMovies', {
             url: '/',
             template: require('./movies.template.html'),
-            controller: 'MoviesController',
+            controller: 'MoviesCtrl',
             controllerAs: 'movies'
         })
         .state('upcomingMovies', {
             url: '/upcoming',
             template: require('./movies.template.html'),
-            controller: 'MoviesController',
+            controller: 'MoviesCtrl',
             controllerAs: 'movies'
         })
         .state('topRatedMovies', {
             url: '/top',
             template: require('./movies.template.html'),
-            controller: 'MoviesController',
+            controller: 'MoviesCtrl',
             controllerAs: 'movies'
         });
 }

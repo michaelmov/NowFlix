@@ -11,7 +11,7 @@
     </div>
     <nav class="nfx-sidebar__nav-container">
         <ul>
-            <li ng-repeat="item in $ctrl.navItems"
+            <li ng-repeat="item in $ctrl.items"
                 ng-class="$ctrl.isNavItemActive(item.url) ? 'nfx-sidebar__nav-item--active' : 'nfx-sidebar__nav-item'"
                 layout="row"
                 layout-align="start center"
@@ -22,6 +22,5 @@
             </li>
         </ul>
     </nav>
-
 </md-sidenav>
 

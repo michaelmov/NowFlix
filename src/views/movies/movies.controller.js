@@ -1,15 +1,11 @@
 /**
  * Created by Michael Movsesov on 1/22/17.
  */
-import MoviesSvc from './../../shared/services/movies.service'
-
 export default class MoviesController {
-
     constructor($state, MOVIE_DB_API, MoviesSvc) {
         'ngInject';
 
         this.state = $state;
-        this.apiKey = MOVIE_DB_API.API_KEY;
         this.moviesSvc = MoviesSvc;
         this.movieList = null;
 
@@ -37,6 +33,6 @@ export default class MoviesController {
     }
 
     getPoster(path) {
-        return this.moviesSvc.getMoviePosterUrl('w320', path);
+        return this.moviesSvc.getMoviePosterUrl('w640', path);
     }
 }
