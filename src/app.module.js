@@ -27,6 +27,9 @@ import Movies from './views/movies/movies.module';
 // Services
 import MoviesSvc from './shared/services/movies.service';
 
+// Controllers
+import AppController from './app.controller';
+
 
 
 angular.module('app', [
@@ -38,5 +41,6 @@ angular.module('app', [
     MoviesSvc
 ])
     .constant('MOVIE_DB_API', MOVIE_DB_API)
+    .controller('AppCtrl', AppController)
     .config(routing)
     .config(theme);

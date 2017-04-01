@@ -7,8 +7,11 @@
     <base href="/index.html">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
 </head>
-<body ng-cloak layout="row" class="nfx">
-    <sidebar layout="column"></sidebar>
+<body ng-controller="AppCtrl as appCtrl"
+      class="nfx"
+      ng-cloak
+      layout="row">
+    <sidebar layout="column" items="appCtrl.navItems"></sidebar>
     <ui-view layout="column" flex></ui-view>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.js"></script>
