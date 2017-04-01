@@ -6,12 +6,13 @@
             flex
             hide-xs>
     <div class="nfx-sidebar__brand-container" layout="row" layout-align="center start">
-        <h1 class="nfx-sidebar__brand md-display-1">NowFlix</h1>
+        <h1 class="nfx-sidebar__brand md-display-1"
+            md-colors="{'color': 'grey-A100'}">NowFlix</h1>
     </div>
     <nav class="nfx-sidebar__nav-container">
         <ul>
             <li ng-repeat="item in $ctrl.navItems"
-                ng-class="item.active ? 'nfx-sidebar__nav-item--active' : 'nfx-sidebar__nav-item'"
+                ng-class="$ctrl.isNavItemActive(item.url) ? 'nfx-sidebar__nav-item--active' : 'nfx-sidebar__nav-item'"
                 layout="row"
                 layout-align="start center"
                 md-ink-ripple>

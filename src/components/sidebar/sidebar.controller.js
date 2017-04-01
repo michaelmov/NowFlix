@@ -3,23 +3,29 @@
  */
 
 export default class SidebarController {
-    constructor() {
+    constructor($location) {
+        'ngInject';
+
+        this.$location = $location;
         this.navItems = [
             {
                 name: 'Now Playing',
-                url: '/',
-                active: true
+                url: '/'
             },
             {
                 name: 'Upcoming',
-                url: '/upcoming',
-                active: false
+                url: '/upcoming'
             },
             {
                 name: 'Top Rated',
-                url: '/top',
-                active: false
+                url: '/top'
             }
-        ]
+        ];
+
+    }
+
+    isNavItemActive(path) {
+            return (this.$location.path() == path) ? true : false;
     }
 }
+
