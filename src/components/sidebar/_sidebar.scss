@@ -1,4 +1,45 @@
 .nfx-sidebar {
   max-width: 300px;
-  padding: $baseline-grid * 3;
+
+  &__brand-container {
+    padding: $baseline-grid * 3;
+  }
+
+  &__brand {
+    margin: 0;
+  }
+
+  &__nav-container {
+    ul {
+      padding-left: 0;
+    }
+
+  }
+
+  &__nav-item {
+    position: relative;
+    padding-left: $baseline-grid * 2;
+    padding-right: $baseline-grid * 2;
+    height: $baseline-grid * 8;
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      line-height: $baseline-grid * 8;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background: lighten($md-background, 0.9);
+      border-left: 4px solid $md-primary;
+      padding-left: ($baseline-grid * 2) - 4px;
+    }
+
+    &--active {
+      @extend .nfx-sidebar__nav-item;
+      @extend .nfx-sidebar__nav-item:hover;
+    }
+  }
+
 }

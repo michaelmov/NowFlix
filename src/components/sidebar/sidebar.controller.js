@@ -7,15 +7,18 @@ export default class SidebarController {
         this.navItems = [
             {
                 name: 'Now Playing',
-                url: '/'
+                url: '/',
+                active: true
             },
             {
                 name: 'Upcoming',
-                url: '/upcoming'
+                url: '/upcoming',
+                active: false
             },
             {
                 name: 'Top Rated',
-                url: '/top'
+                url: '/top',
+                active: false
             }
         ]
     }

@@ -1,10 +1,26 @@
-<md-sidenav flex class="nfx-sidebar md-whiteframe-8dp" md-is-locked-open="true"
-            md-component-id="left" md-colors="{background: 'background-600'}" hide-xs>
-    <h1>NowFlix</h1>
-    <ul>
-        <li ng-repeat="item in $ctrl.navItems">
-            <a href="{{item.url}}">{{item.name}}</a>
-        </li>
-    </ul>
+<md-sidenav class="nfx-sidebar md-whiteframe-8dp"
+            md-is-locked-open="true"
+            md-component-id="left"
+            md-colors="{background: 'background-600'}"
+            layout="column"
+            flex
+            hide-xs>
+    <div class="nfx-sidebar__brand-container" layout="row" layout-align="center start">
+        <h1 class="nfx-sidebar__brand md-display-1">NowFlix</h1>
+    </div>
+    <nav class="nfx-sidebar__nav-container">
+        <ul>
+            <li ng-repeat="item in $ctrl.navItems"
+                ng-class="item.active ? 'nfx-sidebar__nav-item--active' : 'nfx-sidebar__nav-item'"
+                layout="row"
+                layout-align="start center"
+                md-ink-ripple>
+                <a href="{{item.url}}"
+                   flex
+                   md-colors="{'color': 'grey-A100'}">{{item.name}}</a>
+            </li>
+        </ul>
+    </nav>
+
 </md-sidenav>
 
