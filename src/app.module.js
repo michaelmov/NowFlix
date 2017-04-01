@@ -23,6 +23,7 @@ import GridThumbnail from './components/grid-thumbnail/grid-thumbnail.module';
 
 // View modules
 import Movies from './views/movies/movies.module';
+import MovieDetails from './views/movie-details/movie-details.module';
 
 // Services
 import MoviesSvc from './shared/services/movies.service';
@@ -36,6 +37,7 @@ angular.module('app', [
     'ngMaterial',
     uirouter,
     Movies,
+    MovieDetails,
     Sidebar,
     GridThumbnail,
     MoviesSvc
