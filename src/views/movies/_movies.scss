@@ -3,7 +3,11 @@
   background-image: $gradient-bg;
   padding: $baseline-grid * 6;
 
+  &__page-title {
+    margin-left: $baseline-grid * 3;
+  }
   &__container {
-    max-width: 1200px;
+    position: relative;
+    max-width: 1032px !important;
   }
 }

@@ -2,7 +2,8 @@ import SidebarCtrl from './sidebar.controller.js';
 
 let sidebar = {
     bindings: {
-        items: '='
+        items: '=',
+        onNavChange: '&'
     },
     template: require('./sidebar.template.html'),
     controller: SidebarCtrl

@@ -12,12 +12,13 @@
     <nav class="nfx-sidebar__nav-container">
         <ul>
             <li ng-repeat="item in $ctrl.items"
-                ng-class="$ctrl.isNavItemActive(item.url) ? 'nfx-sidebar__nav-item--active' : 'nfx-sidebar__nav-item'"
+                ng-class="item.active ? 'nfx-sidebar__nav-item--active' : 'nfx-sidebar__nav-item'"
                 layout="row"
                 layout-align="start center"
                 md-ink-ripple>
                 <a href="{{item.url}}"
                    flex
+                   ng-click="$ctrl.isNavItemActive()"
                    md-colors="{'color': 'grey-A100'}">{{item.name}}</a>
             </li>
         </ul>

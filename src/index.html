@@ -11,7 +11,7 @@
       class="nfx"
       ng-cloak
       layout="row">
-    <sidebar layout="column" items="appCtrl.navItems"></sidebar>
+    <sidebar layout="column" items="appCtrl.navItems" onNavChange="appCtrl.getCurrentPageTitle()"></sidebar>
     <ui-view layout="column" flex></ui-view>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.js"></script>
