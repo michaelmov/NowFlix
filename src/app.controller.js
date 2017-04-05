@@ -28,19 +28,42 @@ export default class AppController {
         ];
 
         this.currentPageTitle = null;
+
+        this.setCurrentPageTitle();
+        this.isNavItemActive();
     }
 
-    getCurrentPageTitle() {
-        angular.forEach(this.navItems, (item) => {
-            this.$timeout(() => {
-                // Set active state to true if url in "navItems" object matches the browser's url path.
-                angular.forEach(this.navItems, (item) => {
-                    if (item.url === this.$location.path()) {
-                        this.currentPageTitle = item.pageTitle;
-                    }
-                });
-            }, 0);
-        })
+    setCurrentPageTitle() {
+        this.$timeout(() => {
+            angular.forEach(this.navItems, (item) => {
+                if (item.url === this.$location.path()) {
+                    this.currentPageTitle = item.pageTitle;
+                }
+            });
+        }, 0);
+    }
+
+    isNavItemActive() {
+        this.$timeout(() => {
+            // Set all active to false to remove active state.
+            angular.forEach(this.navItems, (item) => {
+                item.active = false;
+            });
+
+            // Set active state to true if url in "navItems" object matches the browser's url path.
+            angular.forEach(this.navItems, (item) => {
+                if (item.url === this.$location.path()) {
+                    item.active = true;
+                }
+            });
+        }, 0);
+
+    }
+
+    onNavChange() {
+        console.log('changed!');
+        this.setCurrentPageTitle();
+        this.isNavItemActive();
     }
 
 }

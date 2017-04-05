@@ -27,7 +27,6 @@ export default class MoviesController {
             default:
                 this.moviesSvc.getMovies('now_playing').then((movies) => {
                     this.movieList = movies;
-                    console.log(this.movieList);
                 });
         }
     }
