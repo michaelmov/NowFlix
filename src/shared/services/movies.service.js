@@ -38,6 +38,23 @@ class MoviesService {
 
         return `${this.posterEndpoint}/${posterSize}/${posterPath}`;
     }
+
+    getMovieDetails(movieId) {
+        let deferred = this.$q.defer();
+
+        this.$http.get(`${this.endPoint}/${movieId}?api_key=${this.apiKey}&language=en-US&page=1`)
+            .then((response) => {
+                let movieDetails = response.data;
+
+                this.$log.log('Movie details fetched!');
+                deferred.resolve(movieDetails);
+            }, (reason) => {
+                this.$log.error('Error fetching movie details :(');
+                deferred.reject(reason);
+        });
+
+        return deferred.promise;
+    }
 }
 export default angular.module('app.services', [])
     .service('MoviesSvc', MoviesService)

@@ -6,6 +6,6 @@ export default function routes($stateProvider) {
             url: '/movie/:movieId',
             template: require('./movie-details.template.html'),
             controller: 'MovieDetailsCtrl',
-            controllerAs: 'movieDetails'
+            controllerAs: 'movie'
         });
 }

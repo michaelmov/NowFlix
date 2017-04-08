@@ -4,9 +4,11 @@
 
 let gridThumbnail = {
     bindings: {
+        // TODO: Should be passing down a complete URL instead of movieId from parent controller
+        movieId: '@',
         title: '@',
         poster: '@',
-        rating: '@'
+        rating: '@',
     },
     template: require('./grid-thumbnail.template.html')
 };
