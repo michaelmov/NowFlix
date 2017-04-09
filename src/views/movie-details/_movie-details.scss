@@ -1,3 +1,46 @@
 .movie-details {
   background-image: $gradient-bg;
+
+  &__backdrop {
+    position: relative;
+    height: 40vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media(max-width: $layout-breakpoint-sm) {
+      height: 30vh;
+    }
+
+    &__overlay {
+      position: absolute;
+      background-color: rgba(black, 0.4);
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__container {
+    position: relative;
+    max-width: 960px;
+  }
+
+  &__info-wrap {
+    bottom: -40%;
+  }
+
+  &__poster {
+    max-width: 210px;
+    margin-right: $baseline-grid * 3;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+  }
+
 }

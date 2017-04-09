@@ -8,9 +8,11 @@ export default class MovieDetailsController {
 
         this.movieDetails = {
             title: null,
+            year: null,
+            posterImage: null,
             genres: [],
             releaseDate: null,
-            backgroundImage: null
+            backdropImage: null
         };
 
         this.loadMovieDetails();
@@ -21,7 +23,13 @@ export default class MovieDetailsController {
         this.moviesSvc.getMovieDetails(this.movieId)
             .then((movie) => {
                 this.movieDetails.title = movie.title;
-                this.movieDetails.backgroundImage = this.moviesSvc.getImageUrl(movie.backdrop_path, 'w1280');
+                this.movieDetails.posterImage = this.moviesSvc.getImageUrl(movie.poster_path, 'w640');
+                this.movieDetails.backdropImage = this.moviesSvc.getImageUrl(movie.backdrop_path);
+
+                let tempReleaseDate = new Date(movie.release_date);
+
+                this.movieDetails.year = tempReleaseDate.getFullYear();
+
             });
     }
 }

@@ -5,9 +5,25 @@
             md-scroll-y
             md-colors="{'background-color' : 'background-700'}">
     <div layout="row" layout-align="center start" layout-wrap flex>
-        <div layout="row">
-            <img ng-src="{{ movie.movieDetails.backgroundImage }}" alt="">
+        <div class="movie-details__backdrop"
+             layout="row"
+             flex
+             style="background-image: url('{{ movie.movieDetails.backdropImage }}')"
+             layout-align="center end"
+             layout-wrap>
+            <div class="movie-details__backdrop__overlay" flex="100"></div>
+            <div class="movie-details__container movie-details__info-wrap"
+                 layout="row"
+                 flex>
+                <div class="movie-details__poster md-whiteframe-8dp">
+                    <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
+                </div>
+                <div layout="column">
+                    <h2 class="md-display-1 movie-details__title">
+                        {{ movie.movieDetails.title }} ({{movie.movieDetails.year}})
+                    </h2>
+                </div>
+            </div>
         </div>
-
-    </div>
+    </div
 </md-content>
