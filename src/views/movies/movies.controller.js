@@ -15,23 +15,26 @@ export default class MoviesController {
     loadMovieList() {
         switch(this.state.current.name) {
             case 'upcomingMovies':
-                this.moviesSvc.getMovies('upcoming').then((movies) => {
-                    this.movieList = movies;
+                this.moviesSvc.getMovies('upcoming')
+                    .then((movies) => {
+                        this.movieList = movies;
                 });
                 break;
             case 'topRatedMovies':
-                this.moviesSvc.getMovies('top_rated').then((movies) => {
-                    this.movieList = movies;
+                this.moviesSvc.getMovies('top_rated')
+                    .then((movies) => {
+                        this.movieList = movies;
                 });
                 break;
             default:
-                this.moviesSvc.getMovies('now_playing').then((movies) => {
-                    this.movieList = movies;
+                this.moviesSvc.getMovies('now_playing')
+                    .then((movies) => {
+                        this.movieList = movies;
                 });
         }
     }
 
     getPoster(path) {
-        return this.moviesSvc.getMoviePosterUrl('w640', path);
+        return this.moviesSvc.getImageUrl(path, 'w640');
     }
 }

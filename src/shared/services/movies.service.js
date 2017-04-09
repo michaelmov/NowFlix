@@ -32,11 +32,11 @@ class MoviesService {
         return deferred.promise;
     }
 
-    getMoviePosterUrl(size, path) {
-        let posterSize = size || 'w640';
-        let posterPath = path;
+    getImageUrl(path, size) {
+        let imagePath = path;
+        let imageSize = size || 'original';
 
-        return `${this.posterEndpoint}/${posterSize}/${posterPath}`;
+        return `${this.posterEndpoint}/${imageSize}/${imagePath}`;
     }
 
     getMovieDetails(movieId) {
