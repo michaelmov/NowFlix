@@ -6,8 +6,12 @@ export default class MovieDetailsController {
         this.moviesSvc = MoviesSvc;
         this.movieId = this.stateParams.movieId;
 
-        // TODO: Need to decouple the movieDetails object model from the server model.
-        this.movieDetails = null;
+        this.movieDetails = {
+            title: null,
+            genres: [],
+            releaseDate: null,
+            backgroundImage: null
+        };
 
         this.loadMovieDetails();
 
@@ -16,7 +20,8 @@ export default class MovieDetailsController {
     loadMovieDetails() {
         this.moviesSvc.getMovieDetails(this.movieId)
             .then((movie) => {
-                this.movieDetails = movie;
+                this.movieDetails.title = movie.title;
+                this.movieDetails.backgroundImage = this.moviesSvc.getImageUrl(movie.backdrop_path, 'w1280');
             });
     }
 }

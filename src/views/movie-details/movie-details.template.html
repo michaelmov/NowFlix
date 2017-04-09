@@ -5,6 +5,9 @@
             md-scroll-y
             md-colors="{'background-color' : 'background-700'}">
     <div layout="row" layout-align="center start" layout-wrap flex>
-        <h1>{{ movie.movieDetails.original_title }}</h1>
+        <div layout="row">
+            <img ng-src="{{ movie.movieDetails.backgroundImage }}" alt="">
+        </div>
+
     </div>
 </md-content>
