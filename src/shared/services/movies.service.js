@@ -55,6 +55,30 @@ class MoviesService {
 
         return deferred.promise;
     }
+
+    // Get YouTube video key
+    getVideo(movieId) {
+        let deferred = this.$q.defer();
+
+        this.$http.get(`${this.endPoint}/${movieId}/videos?api_key=${this.apiKey}&language=en-US&page=1`)
+            .then((response) => {
+                let videos = response.data.results;
+                let videoKey = null;
+                angular.forEach(videos, (video) => {
+                    if(video.type === 'Trailer' && video.site === 'YouTube') {
+                        videoKey = video.key;
+                        deferred.resolve(videoKey);
+                    }
+                });
+                deferred.resolve(videoKey)
+
+            }, (reason) => {
+                this.$log.error('Error getting video Url');
+                deferred.reject(reason);
+            });
+
+        return deferred.promise;
+    }
 }
 export default angular.module('app.services', [])
     .service('MoviesSvc', MoviesService)

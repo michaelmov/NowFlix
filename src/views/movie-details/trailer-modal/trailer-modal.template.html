@@ -1,0 +1,16 @@
+<md-dialog aria-label="Trailer" class="nfx-trailer-modal">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{ ctrl.modalTitle }}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <iframe src="{{ctrl.trailerUrl}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </md-dialog-content>
+</md-dialog>

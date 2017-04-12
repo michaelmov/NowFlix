@@ -1,0 +1,21 @@
+.nfx-trailer-modal {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+
+  // Keep aspect ratio at 16:9 when embed player is responsive
+  .md-dialog-content {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+
+  // Make iframe responsive
+  iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+}

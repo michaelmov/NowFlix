@@ -15,12 +15,17 @@
             <div class="movie-details__container movie-details__info-wrap"
                  layout="row"
                  flex>
-                <div class="movie-details__poster md-whiteframe-8dp">
-                    <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
+                <div layout="column">
+                    <div class="movie-details__poster md-whiteframe-8dp">
+                        <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
+                    </div>
+                    <!-- TODO: Disable button if trailer is unavailable -->
+                    <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                               ng-click="movie.openTrailer($event)">Watch Trailer</md-button>
                 </div>
                 <div layout="column">
                     <h2 class="md-display-1 movie-details__title">
-                        {{ movie.movieDetails.title }} ({{movie.movieDetails.year}})
+                        {{ movie.movieDetails.title }} ({{ movie.movieDetails.releaseDate | date: 'yyyy' }})
                     </h2>
                 </div>
             </div>

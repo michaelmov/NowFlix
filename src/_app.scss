@@ -2,7 +2,8 @@
 @import "../node_modules/angular-material/modules/scss/angular-material.layouts";
 
 /* Base */
-@import "shared/styles/typography",
+@import "shared/styles/variables",
+        "shared/styles/typography",
         "shared/styles/colors";
 
 /* Components */
@@ -11,4 +12,5 @@
 
 /* Views */
 @import "views/movies/movies",
-        "views/movie-details/movie-details";
+        "views/movie-details/movie-details",
+        "views/movie-details/trailer-modal/trailer-modal";

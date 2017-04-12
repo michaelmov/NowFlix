@@ -30,8 +30,9 @@
   }
 
   &__poster {
-    max-width: 210px;
+    max-width: $poster-width;
     margin-right: $baseline-grid * 3;
+    margin-bottom: $baseline-grid;
 
     img {
       display: block;
@@ -43,4 +44,9 @@
     margin-top: 0;
   }
 
+  &__watch-trailer-btn {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: $poster-width;
+  }
 }
