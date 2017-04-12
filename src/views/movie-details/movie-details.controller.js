@@ -1,9 +1,10 @@
 import trailerModalCtrl from './trailer-modal/trailer-modal.controller';
 
 export default class MovieDetailsController {
-    constructor($mdDialog, $sce, $stateParams, MoviesSvc) {
+    constructor($filter, $mdDialog, $sce, $stateParams, MoviesSvc) {
         'ngInject';
 
+        this.$filter = $filter;
         this.$sce = $sce;
         this.$stateParams = $stateParams;
         this.moviesSvc = MoviesSvc;
@@ -31,6 +32,7 @@ export default class MovieDetailsController {
                 this.movieDetails.posterImage = this.moviesSvc.getImageUrl(movie.poster_path, 'w640');
                 this.movieDetails.backdropImage = this.moviesSvc.getImageUrl(movie.backdrop_path);
                 this.movieDetails.releaseDate = movie.release_date;
+                this.movieDetails.year = this.$filter('date')(movie.release_date, 'yyyy');
 
                 // Get trailer key and put together a YouTube embed url.
                 this.moviesSvc.getVideo(this.movieId)
