@@ -3,13 +3,17 @@
 
   &__backdrop {
     position: relative;
-    height: 40vh;
+    height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 
+    @media(max-width: $layout-breakpoint-lg) {
+      height: 400px;
+    }
+
     @media(max-width: $layout-breakpoint-sm) {
-      height: 30vh;
+      height: 300px;
     }
 
     &__overlay {
@@ -23,6 +27,8 @@
   &__container {
     position: relative;
     max-width: 960px;
+    margin-left: $baseline-grid * 3;
+    margin-right: $baseline-grid * 3;
   }
 
   &__info-wrap {

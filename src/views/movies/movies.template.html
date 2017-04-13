@@ -7,7 +7,7 @@
             md-scroll-y
             md-colors="{'background-color' : 'background-700'}">
 
-        <div class="movies__container" layout="row" layout-align="center start" layout-wrap flex="100">
+        <div class="movies__container" layout="row" layout-align="start start" layout-wrap flex="100">
             <h2 class="movies__page-title md-display-1" flex="100">{{ appCtrl.currentPageTitle }}</h2>
             <grid-thumbnail ng-repeat="movie in movies.movieList"
                             movie-id="{{movie.id}}"
