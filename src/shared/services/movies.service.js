@@ -4,7 +4,7 @@
 import angular from 'angular';
 
 class MoviesService {
-    constructor($http, $q, $log, MOVIE_DB_API) {
+    constructor($http, $q, $log, $rootScope, MOVIE_DB_API) {
        'ngInject';
 
         this.$http = $http;
@@ -13,6 +13,7 @@ class MoviesService {
         this.apiKey = MOVIE_DB_API.API_KEY;
         this.endPoint = MOVIE_DB_API.API_ENDPOINT;
         this.posterEndpoint = MOVIE_DB_API.POSTER_ENDPOINT;
+        this.$rootScope = $rootScope;
         this.movies = [];
     }
 
@@ -51,7 +52,7 @@ class MoviesService {
             }, (reason) => {
                 this.$log.error('Error fetching movie details :(');
                 deferred.reject(reason);
-        });
+            });
 
         return deferred.promise;
     }

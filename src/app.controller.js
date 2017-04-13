@@ -28,7 +28,6 @@ export default class AppController {
         ];
 
         this.currentPageTitle = null;
-        this.isLoading = $rootScope.isLoading;
 
         this.setCurrentPageTitle();
         this.isNavItemActive();

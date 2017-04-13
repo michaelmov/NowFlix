@@ -10,6 +10,7 @@ export default class MovieDetailsController {
         this.moviesSvc = MoviesSvc;
         this.movieId = this.$stateParams.movieId;
         this.$mdDialog = $mdDialog;
+        this.$rootScope = $rootScope;
 
         this.movieDetails = {
             title: null,
@@ -24,6 +25,7 @@ export default class MovieDetailsController {
     }
 
     loadMovieDetails() {
+        this.$rootScope.isLoading = true;
         this.moviesSvc.getMovieDetails(this.movieId)
             .then((movie) => {
                 this.movieDetails.title = movie.title;
@@ -41,7 +43,10 @@ export default class MovieDetailsController {
                         }
                     })
 
-            });
+            }).finally(() => {
+                this.$rootScope.isLoading = false;
+
+        });
     }
 
     openTrailer(event) {

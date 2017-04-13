@@ -16,16 +16,17 @@
 <body ng-controller="AppCtrl as appCtrl"
       class="nfx"
       ng-cloak
-      layout="row">
+      layout="row"
+      md-colors="{'background-color' : 'background-700'}">
     <sidebar items="appCtrl.navItems"
              on-nav-change="appCtrl.onNavChange()"
              layout="column">
     </sidebar>
-    <ui-view layout="column" flex ng-if="!appCtrl.isLoading"></ui-view>
-    <div ng-if="appCtrl.isLoading"
+    <ui-view layout="column" flex></ui-view>
+    <div ng-if="isLoading"
          layout="row"
          layout-align="center center"
-         flex
+         flex="100"
          md-colors="{'background-color' : 'background-700'}"
          class="nfx-global-loader">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
