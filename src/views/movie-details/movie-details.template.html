@@ -19,12 +19,18 @@
                     <div class="movie-details__poster md-whiteframe-8dp">
                         <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
                     </div>
-                    <!-- TODO: Disable button if trailer is unavailable -->
                     <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                               ng-if="movie.movieDetails.trailerUrl"
                                ng-click="movie.openTrailer($event)">
                         <md-icon>play_arrow</md-icon>
                          Watch Trailer
                     </md-button>
+                    <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                               ng-if="!movie.movieDetails.trailerUrl"
+                               ng-disabled="true">
+                        Trailer Unavailable
+                    </md-button>
+
                 </div>
                 <div layout="column">
                     <h2 class="md-display-1 movie-details__title">

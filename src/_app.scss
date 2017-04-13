@@ -15,3 +15,7 @@
 @import "views/movies/movies",
         "views/movie-details/movie-details",
         "views/movie-details/trailer-modal/trailer-modal";
+
+.nfx-global-loader {
+  background-image: $gradient-bg;
+}

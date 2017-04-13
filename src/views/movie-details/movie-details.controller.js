@@ -1,7 +1,7 @@
 import trailerModalCtrl from './trailer-modal/trailer-modal.controller';
 
 export default class MovieDetailsController {
-    constructor($filter, $mdDialog, $sce, $stateParams, MoviesSvc) {
+    constructor($filter, $mdDialog, $rootScope, $sce, $stateParams, MoviesSvc) {
         'ngInject';
 
         this.$filter = $filter;
@@ -20,9 +20,7 @@ export default class MovieDetailsController {
             backdropImage: null,
             trailerUrl: null
         };
-
         this.loadMovieDetails();
-
     }
 
     loadMovieDetails() {

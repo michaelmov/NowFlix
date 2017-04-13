@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 export default class AppController {
-    constructor($location, $timeout) {
+    constructor($location, $rootScope, $timeout) {
         'ngInject';
 
         this.$location = $location;
@@ -28,6 +28,7 @@ export default class AppController {
         ];
 
         this.currentPageTitle = null;
+        this.isLoading = $rootScope.isLoading;
 
         this.setCurrentPageTitle();
         this.isNavItemActive();

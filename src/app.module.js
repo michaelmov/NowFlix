@@ -42,6 +42,9 @@ angular.module('app', [
     GridThumbnail,
     MoviesSvc
 ])
+    .run(function($rootScope) {
+        $rootScope.isLoading = false;
+    })
     .constant('MOVIE_DB_API', MOVIE_DB_API)
     .controller('AppCtrl', AppController)
     .config(routing)
