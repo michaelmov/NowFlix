@@ -43,6 +43,8 @@ angular.module('app', [
     MoviesSvc
 ])
     .run(function($rootScope) {
+        'ngInject';
+        
         $rootScope.isLoading = false;
     })
     .constant('MOVIE_DB_API', MOVIE_DB_API)
