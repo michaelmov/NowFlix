@@ -1,5 +1,5 @@
 <div class="nfx-grid-thumbnail">
-    <a href="/movie/{{$ctrl.movieId}}">
+    <a ui-sref="movieDetails({movieId: $ctrl.movieId})">
         <div class="nfx-grid-thumbnail__rating__container" layout="row" layout-align="center start">
                         <span class="nfx-grid-thumbnail__rating"
                               md-colors="{'background-color' : 'primary'}">{{$ctrl.rating}}</span>
