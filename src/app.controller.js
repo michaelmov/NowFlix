@@ -37,7 +37,7 @@ export default class AppController {
     setCurrentPageTitle() {
         this.$timeout(() => {
             angular.forEach(this.navItems, (item) => {
-                if (item.url === this.$location.path()) {
+                if (item.url === this.$state.current.name) {
                     this.currentPageTitle = item.pageTitle;
                 }
             });
