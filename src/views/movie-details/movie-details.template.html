@@ -9,36 +9,39 @@
         <div class="movie-details__backdrop"
              layout="row"
              flex
-             style="background-image: url('{{ movie.movieDetails.backdropImage }}')"
-             layout-align="center end"
-             layout-wrap>
-            <div class="movie-details__backdrop__overlay" flex="100"></div>
-            <div class="movie-details__container movie-details__info-wrap"
+             style="background-image: url('{{ movie.movieDetails.backdropImage }}')">
+            <div class="movie-details__backdrop__overlay"
                  layout="row"
+                 layout-align="center end"
+                 layout-wrap
                  flex>
-                <div layout="column">
-                    <div class="movie-details__poster md-whiteframe-8dp">
-                        <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
-                    </div>
-                    <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
-                               ng-if="movie.movieDetails.trailerUrl"
-                               ng-click="movie.openTrailer($event)">
-                        <md-icon>play_arrow</md-icon>
-                         Watch Trailer
-                    </md-button>
-                    <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
-                               ng-if="!movie.movieDetails.trailerUrl"
-                               ng-disabled="true">
-                        Trailer Unavailable
-                    </md-button>
+                <div class="movie-details__container movie-details__info-wrap"
+                     layout="row"
+                     flex>
+                    <div layout="column">
+                        <div class="movie-details__poster md-whiteframe-8dp">
+                            <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
+                        </div>
+                        <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                                   ng-if="movie.movieDetails.trailerUrl"
+                                   ng-click="movie.openTrailer($event)">
+                            <md-icon>play_arrow</md-icon>
+                             Watch Trailer
+                        </md-button>
+                        <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                                   ng-if="!movie.movieDetails.trailerUrl"
+                                   ng-disabled="true">
+                            Trailer Unavailable
+                        </md-button>
 
+                    </div>
+                    <div layout="column">
+                        <h2 class="md-display-1 movie-details__title">
+                            {{ movie.movieDetails.title }} ({{ movie.movieDetails.year }})
+                        </h2>
+                    </div>
                 </div>
-                <div layout="column">
-                    <h2 class="md-display-1 movie-details__title">
-                        {{ movie.movieDetails.title }} ({{ movie.movieDetails.year }})
-                    </h2>
                 </div>
-            </div>
         </div>
     </div
 </md-content>
