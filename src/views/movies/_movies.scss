@@ -4,11 +4,27 @@
   padding: $baseline-grid * 6;
 
   &__page-title {
+    position: relative;
     margin-left: $baseline-grid * 3;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      height: 1px;
+      width: 100px;
+      border-bottom:4px solid $md-primary;
+    }
   }
   
   &__container {
     position: relative;
     max-width: 1200px !important;
   }
+
+  &__thumbnail-wrap {
+    margin-top: $baseline-grid * 5;
+  }
+
 }
