@@ -39,9 +39,18 @@
                         <h2 class="md-display-1 movie-details__title">
                             {{ movie.movieDetails.title }} ({{ movie.movieDetails.year }})
                         </h2>
+                        <div layout="row">
+                            <span class="md-body-1 movie-details__genres"
+                                  ng-repeat="genre in movie.movieDetails.genres"
+                                  md-colors="{'color' : 'grey-500'}">
+                                  {{ genre.name }}{{ $last ? '' : ',' }}&nbsp;</span>
+                        </div>
+                        <div layout="row">
+                            <span class="md-body-1">{{ movie.movieDetails.releaseDate | date: 'longDate' }}</span>
+                        </div>
                     </div>
                 </div>
                 </div>
         </div>
-    </div
+    </div>
 </md-content>

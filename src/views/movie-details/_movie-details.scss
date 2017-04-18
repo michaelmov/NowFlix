@@ -17,7 +17,7 @@
     }
 
     &__overlay {
-      background-color: rgba(black, 0.4);
+      background-color: rgba(black, 0.7);
       height: 100%;
     }
   }
@@ -46,6 +46,12 @@
 
   &__title {
     margin-top: 0;
+    margin-bottom: $baseline-grid;
+  }
+
+  &__genres {
+    font-style: italic;
+    margin-bottom: $baseline-grid;
   }
 
   &__watch-trailer-btn {

@@ -41,7 +41,9 @@ export default class MovieDetailsController {
                             this.movieDetails.trailerUrl =
                                 this.$sce.trustAsResourceUrl(`https://www.youtube.com/embed/${movieKey}?autoplay=1`);
                         }
-                    })
+                    });
+
+                this.movieDetails.genres = movie.genres;
 
             }).finally(() => {
                 this.$rootScope.isLoading = false;
