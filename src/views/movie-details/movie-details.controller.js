@@ -19,7 +19,10 @@ export default class MovieDetailsController {
             genres: [],
             releaseDate: null,
             backdropImage: null,
-            trailerUrl: null
+            trailerUrl: null,
+            rating: null,
+            runtime: null,
+            overview: null
         };
         this.loadMovieDetails();
     }
@@ -44,6 +47,9 @@ export default class MovieDetailsController {
                     });
 
                 this.movieDetails.genres = movie.genres;
+                this.movieDetails.rating = movie.vote_average;
+                this.movieDetails.runtime = this.calculateRuntime(movie.runtime);
+                this.movieDetails.overview = movie.overview;
 
             }).finally(() => {
                 this.$rootScope.isLoading = false;
@@ -63,5 +69,13 @@ export default class MovieDetailsController {
             controller: trailerModalCtrl,
             controllerAs: 'ctrl'
         })
+    }
+
+    // TODO: Make this function a filter
+    calculateRuntime(runtime) {
+        let numhours = Math.trunc(runtime/60);
+        let numminutes = Math.trunc(runtime % 60);
+
+        return `${numhours}h ${numminutes}m`;
     }
 }

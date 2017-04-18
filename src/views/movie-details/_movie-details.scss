@@ -24,17 +24,17 @@
 
   &__container {
     position: relative;
-    max-width: 960px;
+    width: 960px;
     margin-left: $baseline-grid * 3;
     margin-right: $baseline-grid * 3;
   }
 
   &__info-wrap {
-    bottom: -40%;
+    top: -170px;
   }
 
   &__poster {
-    max-width: $poster-width;
+    width: $poster-width;
     margin-right: $baseline-grid * 3;
     margin-bottom: $baseline-grid;
 
@@ -52,6 +52,25 @@
   &__genres {
     font-style: italic;
     margin-bottom: $baseline-grid;
+  }
+
+  &__release-date {
+    margin-bottom: $baseline-grid;
+  }
+
+  &__runtime {
+    margin-bottom: $baseline-grid;
+  }
+
+  &__rating {
+    @extend .nfx-grid-thumbnail__rating;
+    position: relative;
+    top: 0;
+    text-align: center;
+  }
+
+  &__section-heading {
+    margin-bottom: 0;
   }
 
   &__watch-trailer-btn {

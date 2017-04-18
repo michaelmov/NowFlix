@@ -1,56 +1,67 @@
 <md-content class="movie-details"
             layout="row"
             layout-align="center start"
+            layout-wrap
             flex
             md-scroll-y
             md-colors="{'background-color' : 'background-700'}"
             ng-if="!isLoading">
-    <div layout="row" layout-align="center start" layout-wrap flex>
-        <div class="movie-details__backdrop"
+    <section class="movie-details__backdrop"
+         layout="row"
+         flex="100"
+         style="background-image: url('{{ movie.movieDetails.backdropImage }}')">
+        <div class="movie-details__backdrop__overlay"
              layout="row"
-             flex
-             style="background-image: url('{{ movie.movieDetails.backdropImage }}')">
-            <div class="movie-details__backdrop__overlay"
-                 layout="row"
-                 layout-align="center end"
-                 layout-wrap
-                 flex>
-                <div class="movie-details__container movie-details__info-wrap"
-                     layout="row"
-                     flex>
-                    <div layout="column">
-                        <div class="movie-details__poster md-whiteframe-8dp">
-                            <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
-                        </div>
-                        <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
-                                   ng-if="movie.movieDetails.trailerUrl"
-                                   ng-click="movie.openTrailer($event)">
-                            <md-icon>play_arrow</md-icon>
-                             Watch Trailer
-                        </md-button>
-                        <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
-                                   ng-if="!movie.movieDetails.trailerUrl"
-                                   ng-disabled="true">
-                            Trailer Unavailable
-                        </md-button>
-
-                    </div>
-                    <div layout="column">
-                        <h2 class="md-display-1 movie-details__title">
-                            {{ movie.movieDetails.title }} ({{ movie.movieDetails.year }})
-                        </h2>
-                        <div layout="row">
-                            <span class="md-body-1 movie-details__genres"
-                                  ng-repeat="genre in movie.movieDetails.genres"
-                                  md-colors="{'color' : 'grey-500'}">
-                                  {{ genre.name }}{{ $last ? '' : ',' }}&nbsp;</span>
-                        </div>
-                        <div layout="row">
-                            <span class="md-body-1">{{ movie.movieDetails.releaseDate | date: 'longDate' }}</span>
-                        </div>
-                    </div>
-                </div>
-                </div>
+             layout-align="center end"
+             layout-wrap
+             flex>
         </div>
-    </div>
+    </section>
+    <section class="movie-details__container movie-details__info-wrap" layout="row">
+        <div layout="column">
+            <div class="movie-details__poster md-whiteframe-8dp">
+                <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
+            </div>
+            <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                       ng-if="movie.movieDetails.trailerUrl"
+                       ng-click="movie.openTrailer($event)">
+                <md-icon>play_arrow</md-icon>
+                 Watch Trailer
+            </md-button>
+            <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                       ng-if="!movie.movieDetails.trailerUrl"
+                       ng-disabled="true">
+                Trailer Unavailable
+            </md-button>
+        </div>
+        <div layout="column">
+            <h2 class="md-display-1 movie-details__title">
+                {{ movie.movieDetails.title }} ({{ movie.movieDetails.year }})
+            </h2>
+            <div layout="row">
+                <span class="md-body-1 movie-details__genres"
+                      ng-repeat="genre in movie.movieDetails.genres"
+                      md-colors="{'color' : 'grey-500'}">
+                      {{ genre.name }}{{ $last ? '' : ',' }}&nbsp;</span>
+            </div>
+            <div layout="row" class="md-body-1 movie-details__release-date">
+                Release Date: {{ movie.movieDetails.releaseDate | date: 'longDate' }}
+            </div>
+            <div layout="row" class="md-body-1 movie-details__runtime">
+                {{ movie.movieDetails.runtime }}
+            </div>
+            <div layout="row">
+                <span class="movie-details__rating"
+                      md-colors="{'background-color' : 'primary'}">{{movie.movieDetails.rating}}
+                </span>
+            </div>
+            <div layout="row" layout-wrap class="movie-details__overview">
+                <h3 class="md-headline movie-details__section-heading" flex="100">Overview</h3>
+                <div class="nfx-section-heading-underline"></div>
+                <p class="md-body-1" flex="100">
+                    {{ movie.movieDetails.overview }}
+                </p>
+            </div>
+        </div>
+    </section>
 </md-content>
