@@ -47,10 +47,28 @@ class MoviesService {
             .then((response) => {
                 let movieDetails = response.data;
 
-                this.$log.log('Movie details fetched!');
+                this.$log.info('Movie details fetched!');
                 deferred.resolve(movieDetails);
             }, (reason) => {
                 this.$log.error('Error fetching movie details :(');
+                deferred.reject(reason);
+            });
+
+        return deferred.promise;
+    }
+
+    getMovieCredits(movieId, type) {
+        let creditsType = type || 'cast';
+        let deferred = this.$q.defer();
+
+        this.$http.get(`${this.endPoint}/${movieId}/credits?api_key=${this.apiKey}`)
+            .then((response) => {
+                let movieCredits = creditsType === 'crew' ? response.data.crew : response.data.cast;
+
+                this.$log.info('Movie credits fetched!');
+                deferred.resolve(movieCredits);
+            }, (reason) => {
+                this.$log.error('Error fetching movie credits :(');
                 deferred.reject(reason);
             });
 

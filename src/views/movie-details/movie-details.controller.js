@@ -16,13 +16,14 @@ export default class MovieDetailsController {
             title: null,
             year: null,
             posterImage: null,
-            genres: [],
+            genres: null,
             releaseDate: null,
             backdropImage: null,
             trailerUrl: null,
             rating: null,
             runtime: null,
-            overview: null
+            overview: null,
+            cast: null
         };
         this.loadMovieDetails();
     }
@@ -36,6 +37,10 @@ export default class MovieDetailsController {
                 this.movieDetails.backdropImage = this.moviesSvc.getImageUrl(movie.backdrop_path);
                 this.movieDetails.releaseDate = movie.release_date;
                 this.movieDetails.year = this.$filter('date')(movie.release_date, 'yyyy');
+                this.movieDetails.genres = movie.genres;
+                this.movieDetails.rating = movie.vote_average;
+                this.movieDetails.runtime = this.calculateRuntime(movie.runtime);
+                this.movieDetails.overview = movie.overview;
 
                 // Get trailer key and put together a YouTube embed url.
                 this.moviesSvc.getVideo(this.movieId)
@@ -46,10 +51,12 @@ export default class MovieDetailsController {
                         }
                     });
 
-                this.movieDetails.genres = movie.genres;
-                this.movieDetails.rating = movie.vote_average;
-                this.movieDetails.runtime = this.calculateRuntime(movie.runtime);
-                this.movieDetails.overview = movie.overview;
+                // Get movie cast
+                this.moviesSvc.getMovieCredits(this.movieId, 'cast')
+                    .then((movieCredits) => {
+                        this.movieDetails.cast = movieCredits.slice(0, 6);
+                    });
+
 
             }).finally(() => {
                 this.$rootScope.isLoading = false;
@@ -69,6 +76,11 @@ export default class MovieDetailsController {
             controller: trailerModalCtrl,
             controllerAs: 'ctrl'
         })
+    }
+
+    getProfileImage(path) {
+        return this.moviesSvc.getImageUrl(path, 'w185');
+
     }
 
     // TODO: Make this function a filter

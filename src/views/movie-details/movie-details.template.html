@@ -7,9 +7,9 @@
             md-colors="{'background-color' : 'background-700'}"
             ng-if="!isLoading">
     <section class="movie-details__backdrop"
-         layout="row"
-         flex="100"
-         style="background-image: url('{{ movie.movieDetails.backdropImage }}')">
+             layout="row"
+             flex="100"
+             style="background-image: url('{{ movie.movieDetails.backdropImage }}')">
         <div class="movie-details__backdrop__overlay"
              layout="row"
              layout-align="center end"
@@ -62,6 +62,18 @@
                     {{ movie.movieDetails.overview }}
                 </p>
             </div>
+        </div>
+    </section>
+    <section class="movie-details__container movie-details__info-wrap" layout="row">
+        <div layout="row" layout-wrap class="movie-details__overview">
+            <h3 class="md-headline movie-details__section-heading" flex="100">Cast</h3>
+            <div class="nfx-section-heading-underline"></div>
+            <ul>
+                <li ng-repeat="castMember in movie.movieDetails.cast">
+                    {{ castMember.name }} {{castMember.profile_path}}
+                    <img ng-src="{{movie.getProfileImage(castMember.profile_path)}}" alt="">
+                </li>
+            </ul>
         </div>
     </section>
 </md-content>
