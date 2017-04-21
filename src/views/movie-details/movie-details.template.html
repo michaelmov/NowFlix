@@ -17,63 +17,66 @@
              flex>
         </div>
     </section>
-    <section class="movie-details__container movie-details__info-wrap" layout="row">
-        <div layout="column">
-            <div class="movie-details__poster md-whiteframe-8dp">
-                <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
+    <section class="movie-details__container" layout="row" flex="100" layout-align="center start">
+        <div class="movie-details__info-wrap" layout="row">
+            <div layout="column">
+                <div class="movie-details__poster md-whiteframe-8dp">
+                    <img ng-src="{{ movie.movieDetails.posterImage }}" alt="{{ movie.movieDetails.title }}" >
+                </div>
+                <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                           ng-if="movie.movieDetails.trailerUrl"
+                           ng-click="movie.openTrailer($event)">
+                    <md-icon>play_arrow</md-icon>
+                     Watch Trailer
+                </md-button>
+                <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
+                           ng-if="!movie.movieDetails.trailerUrl"
+                           ng-disabled="true">
+                    Trailer Unavailable
+                </md-button>
             </div>
-            <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
-                       ng-if="movie.movieDetails.trailerUrl"
-                       ng-click="movie.openTrailer($event)">
-                <md-icon>play_arrow</md-icon>
-                 Watch Trailer
-            </md-button>
-            <md-button class="md-primary md-raised movie-details__watch-trailer-btn"
-                       ng-if="!movie.movieDetails.trailerUrl"
-                       ng-disabled="true">
-                Trailer Unavailable
-            </md-button>
-        </div>
-        <div layout="column">
-            <h2 class="md-display-1 movie-details__title">
-                {{ movie.movieDetails.title }} ({{ movie.movieDetails.year }})
-            </h2>
-            <div layout="row">
-                <span class="md-body-1 movie-details__genres"
-                      ng-repeat="genre in movie.movieDetails.genres"
-                      md-colors="{'color' : 'grey-500'}">
-                      {{ genre.name }}{{ $last ? '' : ',' }}&nbsp;</span>
-            </div>
-            <div layout="row" class="md-body-1 movie-details__release-date">
-                Release Date: {{ movie.movieDetails.releaseDate | date: 'longDate' }}
-            </div>
-            <div layout="row" class="md-body-1 movie-details__runtime">
-                {{ movie.movieDetails.runtime }}
-            </div>
-            <div layout="row">
-                <span class="movie-details__rating"
-                      md-colors="{'background-color' : 'primary'}">{{movie.movieDetails.rating}}
-                </span>
-            </div>
-            <div layout="row" layout-wrap class="movie-details__overview">
-                <h3 class="md-headline movie-details__section-heading" flex="100">Overview</h3>
-                <div class="nfx-section-heading-underline"></div>
-                <p class="md-body-1" flex="100">
-                    {{ movie.movieDetails.overview }}
-                </p>
+            <div layout="column">
+                <h2 class="md-display-1 movie-details__title">
+                    {{ movie.movieDetails.title }} ({{ movie.movieDetails.year }})
+                </h2>
+                <div layout="row">
+                    <span class="md-body-1 movie-details__genres"
+                          ng-repeat="genre in movie.movieDetails.genres"
+                          md-colors="{'color' : 'grey-500'}">
+                          {{ genre.name }}{{ $last ? '' : ',' }}&nbsp;</span>
+                </div>
+                <div layout="row" class="md-body-1 movie-details__release-date">
+                    Release Date: {{ movie.movieDetails.releaseDate | date: 'longDate' }}
+                </div>
+                <div layout="row" class="md-body-1 movie-details__runtime">
+                    {{ movie.movieDetails.runtime }}
+                </div>
+                <div layout="row">
+                    <span class="movie-details__rating"
+                          md-colors="{'background-color' : 'primary'}">{{movie.movieDetails.rating}}
+                    </span>
+                </div>
+                <div layout="row" layout-wrap class="movie-details__overview">
+                    <h3 class="md-headline movie-details__section-heading" flex="100">Overview</h3>
+                    <div class="nfx-section-heading-underline"></div>
+                    <p class="md-body-1" flex="100">
+                        {{ movie.movieDetails.overview }}
+                    </p>
+                </div>
             </div>
         </div>
     </section>
     <section class="movie-details__container movie-details__info-wrap" layout="row">
-        <div layout="row" layout-wrap class="movie-details__overview">
+        <div layout="row" layout-wrap class="movie-details__cast">
             <h3 class="md-headline movie-details__section-heading" flex="100">Cast</h3>
             <div class="nfx-section-heading-underline"></div>
-            <ul>
-                <li ng-repeat="castMember in movie.movieDetails.cast">
-                    {{ castMember.name }} {{castMember.profile_path}}
-                    <img ng-src="{{movie.getProfileImage(castMember.profile_path)}}" alt="">
-                </li>
-            </ul>
+            <div flex="100" layout="row" layout-wrap>
+                <cast-profile-thumbnail ng-repeat="castMember in movie.movieDetails.cast"
+                                        name="{{ castMember.name }}"
+                                        character="{{ castMember.character }}"
+                                        image-url="{{ movie.getProfileImage(castMember.profile_path) }}"
+                </cast-profile-thumbnail>
+            </div>
         </div>
     </section>
 </md-content>

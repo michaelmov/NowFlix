@@ -1,0 +1,23 @@
+.nfx-cast-profile-thumbnail {
+  width: 115px;
+  text-align: center;
+  position: relative;
+  margin-right: $baseline-grid * 3;
+  margin-top: $baseline-grid * 2;
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+  }
+
+  &__name {
+    margin-top: $baseline-grid;
+    margin-bottom: 0;
+  }
+
+  &__character {
+    margin-top: 0;
+  }
+}

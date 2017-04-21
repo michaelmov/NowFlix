@@ -20,6 +20,7 @@ import './_app.scss';
 // Component modules
 import Sidebar from './components/sidebar/sidebar.module';
 import GridThumbnail from './components/grid-thumbnail/grid-thumbnail.module';
+import CastProfileThumbnail from './components/cast-profile-thumbnail/cast-profile-thumbnail.module';
 
 // View modules
 import Movies from './views/movies/movies.module';
@@ -40,6 +41,7 @@ angular.module('app', [
     MovieDetails,
     Sidebar,
     GridThumbnail,
+    CastProfileThumbnail,
     MoviesSvc
 ])
     .run(function($rootScope) {

@@ -24,13 +24,14 @@
 
   &__container {
     position: relative;
-    width: 960px;
-    margin-left: $baseline-grid * 3;
-    margin-right: $baseline-grid * 3;
+    top: -170px;
+    margin-bottom: $baseline-grid * 6;
   }
 
   &__info-wrap {
-    top: -170px;
+    width: 960px;
+    margin-left: $baseline-grid * 3;
+    margin-right: $baseline-grid * 3;
   }
 
   &__poster {
