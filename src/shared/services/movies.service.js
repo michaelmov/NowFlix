@@ -20,7 +20,7 @@ class MoviesService {
     getMovies(listName) {
         let deferred = this.$q.defer();
 
-        this.$http.get(`${this.endPoint}/${listName}?api_key=${this.apiKey}&language=en-US&page=1`)
+        this.$http.get(`${this.endPoint}/${listName}?api_key=${this.apiKey}&language=en-US&page=1&region=US`)
             .then((response) => {
                 this.movies = response.data.results;
                 this.$log.log('Movies fetched!');
