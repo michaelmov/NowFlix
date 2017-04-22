@@ -36,6 +36,7 @@ import AppController from './app.controller';
 
 angular.module('app', [
     'ngMaterial',
+    'ngAnimate',
     uirouter,
     Movies,
     MovieDetails,
