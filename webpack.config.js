@@ -32,8 +32,11 @@ module.exports = {
 			{
 				test: /\.html$/,
 				loaders: ['html-loader']
-			}
-
+			},
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader:'file-loader'
+            }
 		]
 	},
 	plugins: [

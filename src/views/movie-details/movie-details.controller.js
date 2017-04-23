@@ -1,4 +1,6 @@
 import trailerModalCtrl from './trailer-modal/trailer-modal.controller';
+import noPosterImage from '../../shared/assets/poster-unavailable.png';
+import noProfileImage from '../../shared/assets/profile-unavailable.png';
 
 export default class MovieDetailsController {
     constructor($filter, $mdDialog, $rootScope, $sce, $stateParams, MoviesSvc) {
@@ -33,7 +35,7 @@ export default class MovieDetailsController {
         this.moviesSvc.getMovieDetails(this.movieId)
             .then((movie) => {
                 this.movieDetails.title = movie.title;
-                this.movieDetails.posterImage = this.moviesSvc.getImageUrl(movie.poster_path, 'w640');
+                this.movieDetails.posterImage = this.getPosterImage(movie.poster_path);
                 this.movieDetails.backdropImage = this.moviesSvc.getImageUrl(movie.backdrop_path);
                 this.movieDetails.releaseDate = movie.release_date;
                 this.movieDetails.year = this.$filter('date')(movie.release_date, 'yyyy');
@@ -78,9 +80,18 @@ export default class MovieDetailsController {
         })
     }
 
-    getProfileImage(path) {
-        return this.moviesSvc.getImageUrl(path, 'w185');
+    getPosterImage(path) {
+        if(path) {
+            return this.moviesSvc.getImageUrl(path, 'w640');
+        }
+        return noPosterImage;
+    }
 
+    getProfileImage(path) {
+        if(path) {
+            return this.moviesSvc.getImageUrl(path, 'w185');
+        }
+        return noProfileImage;
     }
 
     // TODO: Make this function a filter

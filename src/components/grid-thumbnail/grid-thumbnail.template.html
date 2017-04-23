@@ -6,6 +6,6 @@
         </div>
         <img class="nfx-grid-thumbnail__poster-image md-whiteframe-8dp"
              ng-src="{{$ctrl.poster}}" alt="">
-        <h2 class="md-subhead">{{$ctrl.title}}</h2>
+        <h2 class="nfx-grid-thumbnail__movie-title md-subhead">{{$ctrl.title | limitTo: 25}}{{$ctrl.title.length > 25 ? '...' : ''}}</h2>
     </a>
 </div>

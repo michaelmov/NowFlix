@@ -13,8 +13,8 @@
                 <grid-thumbnail ng-repeat="movie in movies.movieList"
                                 movie-id="{{movie.id}}"
                                 title="{{movie.title}}"
-                                rating="{{movie.vote_average}}"
-                                poster="{{movies.getPoster(movie.poster_path)}}">
+                                rating="{{movie.rating }}"
+                                poster="{{movie.poster}}">
                 </grid-thumbnail>
             </div>
         </div>
