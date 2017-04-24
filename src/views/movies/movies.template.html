@@ -11,10 +11,11 @@
             <h2 class="movies__page-title md-display-1" flex="100">{{ appCtrl.currentPageTitle }}</h2>
             <div class="movies__thumbnail-wrap">
                 <grid-thumbnail ng-repeat="movie in movies.movieList"
-                                movie-id="{{movie.id}}"
-                                title="{{movie.title}}"
-                                rating="{{movie.rating }}"
-                                poster="{{movie.poster}}">
+                                movie-id="{{ movie.id }}"
+                                title="{{ movie.title }}"
+                                rating="{{ movie.rating }}"
+                                genres="movie.genres"
+                                poster="{{ movie.poster }}">
                 </grid-thumbnail>
             </div>
         </div>

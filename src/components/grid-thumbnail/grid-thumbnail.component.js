@@ -9,6 +9,7 @@ let gridThumbnail = {
         title: '@',
         poster: '@',
         rating: '@',
+        genres: '='
     },
     template: require('./grid-thumbnail.template.html')
 };

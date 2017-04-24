@@ -25,7 +25,8 @@ export default class MovieDetailsController {
             rating: null,
             runtime: null,
             overview: null,
-            cast: null
+            cast: null,
+            crew: null
         };
         this.loadMovieDetails();
     }
@@ -56,9 +57,8 @@ export default class MovieDetailsController {
                 // Get movie cast
                 this.moviesSvc.getMovieCredits(this.movieId, 'cast')
                     .then((movieCredits) => {
-                        this.movieDetails.cast = movieCredits.slice(0, 6);
+                        this.movieDetails.cast = movieCredits.slice(0, 12);
                     });
-
 
             }).finally(() => {
                 this.$rootScope.isLoading = false;

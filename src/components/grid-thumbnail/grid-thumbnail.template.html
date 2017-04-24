@@ -2,10 +2,19 @@
     <a ui-sref="movieDetails({movieId: $ctrl.movieId})">
         <div class="nfx-grid-thumbnail__rating__container" layout="row" layout-align="center start">
                         <span class="nfx-grid-thumbnail__rating"
-                              md-colors="{'background-color' : 'primary'}">{{$ctrl.rating}}</span>
+                              md-colors="{'background-color' : 'primary'}">{{ $ctrl.rating }}</span>
         </div>
         <img class="nfx-grid-thumbnail__poster-image md-whiteframe-8dp"
-             ng-src="{{$ctrl.poster}}" alt="">
-        <h2 class="nfx-grid-thumbnail__movie-title md-subhead">{{$ctrl.title | limitTo: 25}}{{$ctrl.title.length > 25 ? '...' : ''}}</h2>
+             ng-src="{{ $ctrl.poster }}" alt="{{ $ctrl.title }}">
+        <h2 class="nfx-grid-thumbnail__title md-subhead">{{ $ctrl.title | limitTo: 25 }}{{ $ctrl.title.length > 25 ? '...' : '' }}</h2>
+        <div class="nfx-grid-thumbnail__genres md-caption"
+             md-colors="{'color' : 'grey-500'}"
+             layout="row"
+             layout-wrap>
+            <span ng-repeat="genre in $ctrl.genres">{{ genre }}{{ $last ? '' : ',' }}&nbsp;</span>
+            <!--Empty span to offset to keep height of element the same in case there are no genres. -->
+            <span>&nbsp;</span>
+        </div>
+
     </a>
 </div>

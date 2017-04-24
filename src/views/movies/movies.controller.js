@@ -21,19 +21,18 @@ export default class MoviesController {
         switch(this.state.current.name) {
             case 'upcomingMovies':
                 this.buildMovieList('upcoming');
-                this.$rootScope.isLoading = false;
                 break;
             case 'topRatedMovies':
                 this.buildMovieList('top_rated');
-                this.$rootScope.isLoading = false;
                 break;
             default:
                 this.buildMovieList('now_playing');
-                this.$rootScope.isLoading = false;
         }
     }
 
     buildMovieList(listName) {
+        this.$rootScope.isLoading = true;
+
         this.moviesSvc.getMovies(listName)
             .then((movies) => {
                 angular.forEach(movies, (movie) => {
@@ -41,10 +40,17 @@ export default class MoviesController {
                         id: movie.id,
                         title: movie.title,
                         rating: movie.vote_average,
-                        poster: this.getPosterImage(movie.poster_path)
+                        poster: this.getPosterImage(movie.poster_path),
+                        genres: null
                     };
 
+                    this.moviesSvc.getMovieGenres(movie.genre_ids)
+                        .then((genres) => {
+                            movieObject.genres = genres;
+                        });
+
                     this.movieList.push(movieObject);
+                    this.$rootScope.isLoading = false;
                 })
         })
     }

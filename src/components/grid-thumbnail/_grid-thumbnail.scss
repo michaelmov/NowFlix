@@ -4,6 +4,11 @@
   padding-left: $baseline-grid * 3;
   padding-right: $baseline-grid * 3;
   margin-bottom: $baseline-grid * 4;
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   &__poster-image {
     display: block;
@@ -20,6 +25,16 @@
     width: 48px;
     border-radius: 10px;
     top: -12px;
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__genres {
+    font-style: italic;
+    overflow: hidden;
+    max-width: $poster-width;
   }
 
   a {
