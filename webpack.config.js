@@ -14,28 +14,33 @@ module.exports = {
         "angular-material": "ngMaterial"
     },
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loaders: ["ng-annotate-loader", "babel-loader"]
+				use: ["ng-annotate-loader", "babel-loader"]
 			},
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract("style-loader",
-					"css-loader?sourceMap!sass-loader?sourceMap")
+				use: ExtractTextPlugin.extract({
+					fallback: "style-loader",
+					use: "css-loader?sourceMap!sass-loader?sourceMap"
+				})
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap")
+				use: ExtractTextPlugin.extract({
+					fallback:"style-loader",
+					use: "css-loader?sourceMap"
+				})
 			},
 			{
 				test: /\.html$/,
-				loaders: ['html-loader']
+				use: ['html-loader']
 			},
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loader:'file-loader'
+                use: ['file-loader']
             }
 		]
 	},
@@ -45,7 +50,9 @@ module.exports = {
 			inject: 'body'
 		}),
 		new webpack.HotModuleReplacementPlugin(),
-		new ExtractTextPlugin('styles.[hash].css')
+		new ExtractTextPlugin({
+			filename: 'styles.[hash].css'
+		})
 	],
 	devtool: 'source-map',
 	devServer: {
