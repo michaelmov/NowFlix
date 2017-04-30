@@ -1,12 +1,13 @@
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
-	entry: __dirname + "/src/app.module.js",
+	entry: "./src/app.module.js",
 	output: {
-		path: __dirname + "/dist",
+		path: path.resolve(__dirname, "dist"),
 		filename: "bundle.js"
 	},
 	externals: {
@@ -49,7 +50,7 @@ module.exports = {
 			template: __dirname + '/src/index.html',
 			inject: 'body'
 		}),
-		new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
 		new ExtractTextPlugin({
 			filename: 'styles.[hash].css'
 		})
@@ -60,7 +61,6 @@ module.exports = {
 		hot: true,
 		port: 3000,
 		stats: 'minimal',
-		contentBase: '/src',
 		historyApiFallback: true
 	}
 };

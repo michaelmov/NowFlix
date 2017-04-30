@@ -1,10 +1,11 @@
+const path = require('path');
 const devConfig = require('./webpack.config');
 
 /*
 * Add unique hash to bundles for each build to refresh browser cache
 * */
 devConfig.output = {
-    path: __dirname + "/dist",
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.[hash].js"
 };
 
