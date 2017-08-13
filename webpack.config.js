@@ -58,9 +58,9 @@ module.exports = {
 	devtool: 'source-map',
 	devServer: {
 		inline: true,
-		hot: true,
 		port: 3000,
 		stats: 'minimal',
-		historyApiFallback: true
+		contentBase: './dist',
+		historyApiFallback: true,
 	}
 };
