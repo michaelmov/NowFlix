@@ -34,6 +34,7 @@ export default class AppController {
         this.isNavItemActive();
     }
 
+    // Set current page title based on router state.
     setCurrentPageTitle() {
         this.$timeout(() => {
             angular.forEach(this.navItems, (item) => {
