@@ -57,7 +57,7 @@ export default class MoviesController {
 
     getPosterImage(path) {
         if(path) {
-            return this.moviesSvc.getImageUrl(path, 'w640');
+            return this.moviesSvc.getImageUrl(path, 'w1280');
         }
         return noPosterImage;
     }
